@@ -56,7 +56,8 @@ public class DataSource {
         // added use of Properties and try-with-resources - kriger
         Properties props = new Properties();
 
-        try (InputStream in = Files.newInputStream(Paths.get("./app/src/database.properties"))){
+        //../src/database.properties"
+        try (InputStream in = Files.newInputStream(Paths.get("C:\\Users\\aless\\Documents\\NetBeansProjects\\Food_Waste_Reduction_Plataform\\src\\data\\database.properties"))){
             props.load(in);
         } catch (IOException e) {
             // TODO Auto-generated catch block

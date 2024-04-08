@@ -14,18 +14,17 @@ public class Address {
     public Address() {
     }
 
-    public Address(int adress_id, String street, String postalCode, User user) {
-        this.address_id = adress_id;
+    public Address(String street, String postalCode, User user) {
         this.street = street;
         this.postalCode = postalCode;
         this.user = user;
     }
 
-    public int getAdress_id() {
+    public int getAddress_id() {
         return address_id;
     }
 
-    public void setAdress_id(int adress_id) {
+    public void setAddress_id(int adress_id) {
         this.address_id = adress_id;
     }
 
@@ -52,6 +51,7 @@ public class Address {
     public void setUser(User user) {
         this.user = user;
     }
+
 
   
 }

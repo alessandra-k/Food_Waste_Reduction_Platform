@@ -2,6 +2,8 @@
 package BusinessLayer;
 
 import DataAccessLayer.UserDAO;
+import DataAccessLayer.UserDAOImpl;
+import Model.User;
 
 /**
  *
@@ -9,5 +11,14 @@ import DataAccessLayer.UserDAO;
  */
 public class UserBusinessLogic {
     
-       private UserDAO userDAO = null;
+     private UserDAO userDAO = null;
+
+    public UserBusinessLogic() {
+        userDAO = new UserDAOImpl();
+    }
+    
+    public void addUser(User user) {
+        userDAO.addUser(user);
+    }
+    
 }

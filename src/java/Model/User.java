@@ -19,7 +19,7 @@ public class User {
     private List<Subscription> subscriptions;
 
     public User(UserBuilder builder) {
-        user_id = builder.getUser_id();
+//        user_id = builder.getUser_id();
         userName = builder.getUserName();
         userEmail = builder.getUserEmail();
         userPassword = builder.getUserPassword();

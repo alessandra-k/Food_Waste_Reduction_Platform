@@ -1,11 +1,12 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Servlet.java to edit this template
- */
 package Controller;
 
+import BusinessLayer.AddressBusinessLogic;
+import BusinessLayer.UserBusinessLogic;
+import Model.Address;
+import Model.User;
+import Model.UserBuilder;
+import Model.UserType;
 import java.io.IOException;
-import java.io.PrintWriter;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -17,60 +18,67 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class Registration_Servlet extends HttpServlet {
 
-    /**
-     * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
-     * methods.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
-    protected void processRequest(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-          
-        }
-    }
+    private final UserBusinessLogic userBusinessLogic = new UserBusinessLogic();
+    private final AddressBusinessLogic addressBusinessLogic = new AddressBusinessLogic();
 
-    // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
-    /**
-     * Handles the HTTP <code>GET</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
+
     }
 
-    /**
-     * Handles the HTTP <code>POST</code> method.
-     *
-     * @param request servlet request
-     * @param response servlet response
-     * @throws ServletException if a servlet-specific error occurs
-     * @throws IOException if an I/O error occurs
-     */
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        processRequest(request, response);
-    }
 
-    /**
-     * Returns a short description of the servlet.
-     *
-     * @return a String containing servlet description
-     */
-    @Override
-    public String getServletInfo() {
-        return "Short description";
+       String name = request.getParameter("name");
+        String street = request.getParameter("address");
+        String postalCode = request.getParameter("postalCode");
+        String phone = request.getParameter("phone");
+        String email = request.getParameter("email");
+        String password = request.getParameter("password");
+        String userTypeString = request.getParameter("user-type");
+
+        // Convert user type string to UserType enum
+        UserType userType = null;
+        if ("retailer".equals(userTypeString)) {
+            userType = UserType.RETAILER;
+        } else if ("consumer".equals(userTypeString)) {
+            userType = UserType.CONSUMER;
+        } else if ("charitable".equals(userTypeString)) {
+            userType = UserType.CHARITY;
+        }
+
+        // Create User and Address objects
+        Address address = new Address();
+        address.setStreet(street);
+        address.setPostalCode(postalCode);
+
+        User user = UserBuilder.create()
+                .userName(name)
+                .userEmail(email)
+                .userPassword(password)
+                .userType_id(userType.getId())
+                .address(address)
+                .phone(phone)
+                .build();
+
+        try {
+            // Call business logic layer to add user and address
+            userBusinessLogic.addUser(user);
+            addressBusinessLogic.addAddress(address);
+
+         
+        } catch (Exception e) {
+            // Log the exception
+            e.printStackTrace();
+            
+  
+        }}
+
+@Override
+public String getServletInfo() {
+        return "Registration Servlet";
     }// </editor-fold>
 
 }

@@ -22,6 +22,7 @@ public class UserBuilder {
      * Constructor was marked private to enforce use of create() method
      */
     private UserBuilder() {
+      
     }
 
     /*
@@ -31,10 +32,10 @@ public class UserBuilder {
         return new UserBuilder();
     }
 
-    public UserBuilder user_id(int user_id) {
-        this.user_id = user_id;
-        return this;
-    }
+//    public UserBuilder user_id(int user_id) {
+//        this.user_id = user_id;
+//        return this;
+//    }
 
     public UserBuilder userName(String userName) {
         this.userName = userName;

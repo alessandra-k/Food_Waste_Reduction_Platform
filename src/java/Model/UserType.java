@@ -7,7 +7,7 @@ package Model;
  */
 public enum UserType {
     
-    RETAIL(1),
+    RETAILER(1),
     CONSUMER(2),
     CHARITY(3);
     

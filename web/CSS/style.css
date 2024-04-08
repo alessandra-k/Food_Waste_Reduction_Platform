@@ -1,0 +1,504 @@
+
+/* 
+    Created on : Apr. 8, 2024, 12:45:37 p.m.
+    Author     : aless
+*/
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    text-align: center;
+    background-color: #f7f7f7; /* Light gray */
+    padding: 50px 0;
+}
+
+header h1 {
+    font-size: 2.5em;
+    color: #333; /* Dark gray */
+}
+
+main {
+    padding: 50px;
+}
+
+.cta-section {
+    text-align: center;
+    padding: 37px;
+}
+
+.cta-buttons {
+    margin-top: 20px;
+}
+
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/** Registration **/
+.registration-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #333; /* Dark gray */
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+
+
+.radio-buttons label {
+    display: inline-block;
+    margin-right: 20px;
+    padding: 10px 10px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.radio-buttons input[type="radio"] + label {
+    background-color: #ccc;
+    color: #333; /* Dark gray */
+}
+
+.radio-buttons input[type="radio"]:checked + label {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+
+.registrationbutton {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.registrationbutton:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+#loginlink{
+    text-align: center;
+}
+
+#loginlink a{
+    text-decoration: none;
+}
+
+/** Login Page**/
+.login-form {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #333; /* Dark gray */
+}
+
+.form-group input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.login-form button {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.login-form button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/**Retailers**/
+.navigation-bar nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.navigation-bar nav ul li {
+    display: inline;
+}
+
+.navigation-bar nav ul li a {
+    color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.navigation-bar nav ul li a:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+
+.welcome-section {
+    margin-bottom: 30px;
+}
+
+.features-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.features-section h2 {
+    color: #4CAF50; /* Green heading color */
+}
+
+.features-section ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.features-section li {
+    margin: 10px 0;
+}
+
+/**Inventory-retailer**/
+.inventory-nav nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.inventory-nav nav ul li {
+    display: inline;
+}
+
+.inventory-nav nav ul li a {
+    color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.inventory-nav nav ul li a:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+.add-item-section form {
+    max-width: 400px; /* Set maximum width for the form */
+    margin: 0 auto; 
+}
+.update-quantity-section form {
+    max-width: 400px; /* Set maximum width for the form */
+    margin: 0 auto; 
+}
+.add-item-section,
+.update-quantity-section,
+.inventory-list-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    margin-bottom: 30px;
+}
+
+.add-item-section h2,
+.update-quantity-section h2,
+.inventory-list-section h2 {
+    color: #4CAF50; /* Green heading color */
+}
+
+.add-item-section form {
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    color: #333; /* Dark gray */
+}
+
+.form-group input[type="text"],
+input[type="number"],
+input[type="date"],
+input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.add-item-section button {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.update-quantity-section button {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/**Surplus Food**/
+.surplus-food-nav nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.surplus-food-nav nav ul li {
+    display: inline;
+}
+
+.surplus-food-nav nav ul li a {
+    color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.surplus-food-nav nav ul li a:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+
+section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+    margin-bottom: 30px;
+}
+
+section h2 {
+    color: #4CAF50; /* Green heading color */
+}
+
+form {
+    text-align: left;
+    max-width: 400px; /* Set maximum width for the form */
+    margin: 0 auto; /* Center the form horizontally */
+}
+
+.form-group {
+    margin-bottom: 15px; /* Decrease margin between form groups */
+}
+
+label {
+    display: block;
+    font-weight: bold;
+    color: #333; /* Dark gray */
+}
+
+input[type="text"],
+input[type="checkbox"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px 20px;
+    background-color: #4CAF50; /* Green */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/**Charity Home**/
+.charity-nav nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.charity-nav nav ul li {
+    display: inline;
+}
+
+.charity-nav nav ul li a {
+    color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.charity-nav nav ul li a:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+
+.welcome-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Subtle shadow effect */
+}
+
+.welcome-section h2 {
+    color: #4CAF50; /* Green heading color */
+}
+
+/** Claim Food**/
+.claim-food-nav nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.claim-food-nav nav ul li {
+    display: inline;
+}
+
+.claim-food-nav nav ul li a {
+    color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.claim-food-nav nav ul li a:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/**Consumer**/
+.consumer-nav nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.consumer-nav nav ul li {
+    display: inline;
+}
+
+.consumer-nav nav ul li a {
+    color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.consumer-nav nav ul li a:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/**Purchase**/
+.purchase-nav nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.purchase-nav nav ul li {
+    display: inline;
+}
+
+.purchase-nav nav ul li a {
+    color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.purchase-nav nav ul li a:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+/**Subscription**/
+.subscribe-nav nav ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.subscribe-nav nav ul li {
+    display: inline;
+}
+
+.subscribe-nav nav ul li a {
+    color: black;
+    text-decoration: none;
+    padding: 10px 20px;
+}
+
+.subscribe-nav nav ul li a:hover {
+    background-color: #45a049; /* Darker green on hover */
+}
+
+footer {
+    text-align: center;
+    background-color: #333; /* Dark gray */
+    color: #fff; /* White */
+    padding: 30px;
+}
