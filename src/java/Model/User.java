@@ -9,31 +9,30 @@ import java.util.List;
  */
 public class User {
 
-    private int user_id;
+    private Integer user_id;
     private String userName;
     private String userEmail;
     private String userPassword;
     private int userType_id;
-    private Address address; // Each user has an address
+     private Integer address_id; 
     private String phone;
     private List<Subscription> subscriptions;
 
     public User(UserBuilder builder) {
-//        user_id = builder.getUser_id();
         userName = builder.getUserName();
         userEmail = builder.getUserEmail();
         userPassword = builder.getUserPassword();
         userType_id = builder.getUserType_id();
-        address = builder.getAddress();
+        address_id = builder.getAddressId();
         phone = builder.getPhone();
         subscriptions = builder.getSubscriptions();
     }
 
-    public int getUser_id() {
+    public Integer getUser_id() {
         return user_id;
     }
 
-    public void setUser_id(int user_id) {
+    public void setUser_id(Integer user_id) {
         this.user_id = user_id;
     }
 
@@ -68,13 +67,13 @@ public class User {
     public void setUserType_id(int userType_id) {
         this.userType_id = userType_id;
     }
-
-    public Address getAddress() {
-        return address;
+    
+        public Integer getAddress_id() {
+        return address_id;
     }
 
-    public void setAddress(Address address) {
-        this.address = address;
+    public void setAddress_id(Integer address_id) {
+        this.address_id = address_id;
     }
 
     public String getPhone() {
@@ -103,7 +102,7 @@ public class User {
                 .append(userEmail).append(" ")
                 .append(userPassword).append(" ")
                 .append(userType_id).append(" ")
-                .append(address).append(" ")
+                .append(address_id).append(" ")
                 .append(phone);
         return sb.toString();
 

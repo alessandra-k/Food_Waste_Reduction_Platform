@@ -3,6 +3,7 @@ package BusinessLayer;
 import DataAccessLayer.AddressDAO;
 import DataAccessLayer.AddressDAOImpl;
 import Model.Address;
+import Model.User;
 
 /**
  * Making changes to see if it is working
@@ -19,6 +20,10 @@ public class AddressBusinessLogic {
     public void addAddress(Address address) {
         addressDAO.addAddress(address);
     }
+    
+        public void updateAddress(int addressId, User user) {
+            addressDAO.updateAddress(addressId, user);
+        }
     
     
     

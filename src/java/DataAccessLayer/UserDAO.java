@@ -10,6 +10,8 @@ import java.util.List;
 public interface UserDAO {
 
     void addUser(User user);
+    
+    public User authenticateUser(String email, String password);
 
     User getUserById(int userId);
 

@@ -21,4 +21,8 @@ public class UserBusinessLogic {
         userDAO.addUser(user);
     }
     
+    public User authenticateUser(String email, String password){
+        return userDAO.authenticateUser(email, password);
+           }
+    
 }
