@@ -25,6 +25,7 @@ public class Login_Servlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
@@ -35,9 +36,12 @@ public class Login_Servlet extends HttpServlet {
         if (user != null) {
             // User authenticated successfully, determine the user type and redirect accordingly
             switch (user.getUserType_id()) {
-                case 1 -> request.getRequestDispatcher("/Views/retailerPage.jsp").forward(request, response);
-                case 2 -> request.getRequestDispatcher("/Views/consumerPage.jsp").forward(request, response);
-                case 3 -> request.getRequestDispatcher("/Views/charityPage.jsp").forward(request, response);
+                case 1 ->
+                    request.getRequestDispatcher("/Views/retailerPage.jsp").forward(request, response);
+                case 2 ->
+                    request.getRequestDispatcher("/Views/consumerPage.jsp").forward(request, response);
+                case 3 ->
+                    request.getRequestDispatcher("/Views/charityPage.jsp").forward(request, response);
             }
         } else {
             request.setAttribute("error", "Email or password incorrect");

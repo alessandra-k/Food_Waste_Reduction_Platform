@@ -28,4 +28,14 @@ public enum Discount {
     public double getRate() {
         return rate;
     }
-}
+    
+    public static String getDiscountDescriptionById(int id) {
+        for (Discount discount : Discount.values()) {
+            if (discount.getDiscount_id() == id) {
+                return discount.name();
+            }
+        }
+        return null; // Return null if ID is not found
+    }
+    
+   }

@@ -15,21 +15,20 @@ public class Index_Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-       String action = request.getParameter("action");
+        String action = request.getParameter("action");
 
         if ("register".equals(action)) {
             request.getRequestDispatcher("/Views/registration.jsp").forward(request, response);
         } else if ("login".equals(action)) {
             request.getRequestDispatcher("/Views/login.jsp").forward(request, response);
-       }    
+        }
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-   
-    }
 
+    }
 
     @Override
     public String getServletInfo() {

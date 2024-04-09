@@ -1,5 +1,6 @@
 package DataAccessLayer;
 
+import static DataAccessLayer.DataSource.closeConnectionAndResources;
 import java.sql.ResultSet;
 
 import Model.User;
@@ -44,24 +45,9 @@ public class UserDAOImpl implements UserDAO {
                 }
             }
         } catch (SQLException e) {
-            // Handle the exception
             e.printStackTrace();
         } finally {
-            // Close resources in the finally block
-            try {
-                if (generatedKeys != null) {
-                    generatedKeys.close();
-                }
-                if (statement != null) {
-                    statement.close();
-                }
-                if (connection != null) {
-                    connection.close();
-                }
-            } catch (SQLException e) {
-                // Handle the exception
-                e.printStackTrace();
-            }
+            closeConnectionAndResources(connection, statement, generatedKeys);
         }
     }
 
@@ -94,23 +80,10 @@ public class UserDAOImpl implements UserDAO {
                         .phone(resultSet.getString("phone"))
                         .build();
             }
-        } catch (SQLException ex) {
-            ex.printStackTrace(); // Print stack trace for any SQL exceptions
+        } catch (SQLException e) {
+            e.printStackTrace();
         } finally {
-            // Close resources in the finally block
-            try {
-                if (resultSet != null) {
-                    resultSet.close();
-                }
-                if (statement != null) {
-                    statement.close();
-                }
-                if (connection != null) {
-                    connection.close();
-                }
-            } catch (SQLException e) {
-                e.printStackTrace(); // Print stack trace for any closing exceptions
-            }
+            closeConnectionAndResources(connection, statement, resultSet);
         }
         return user;
     }

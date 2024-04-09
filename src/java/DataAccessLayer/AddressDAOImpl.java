@@ -42,26 +42,11 @@ public class AddressDAOImpl implements AddressDAO {
                 address.setAddress_id(generatedId); // Set the generated ID to the address object
             }
         }
-    } catch (SQLException e) {
-        // Handle the exception
-        e.printStackTrace();
-    } finally {
-        // Close resources in the finally block
-        try {
-            if (generatedKeys != null) {
-                generatedKeys.close();
-            }
-            if (statement != null) {
-                statement.close();
-            }
-            if (connection != null) {
-                connection.close();
-            }
         } catch (SQLException e) {
-            // Handle the exception
             e.printStackTrace();
+        } finally {
+            closeConnectionAndResources(connection, statement, generatedKeys);
         }
-    }
 }
     @Override
     public Address getAddressById(int addressId) {

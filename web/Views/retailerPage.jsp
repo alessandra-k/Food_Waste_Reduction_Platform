@@ -19,7 +19,7 @@
             <div class="navigation-bar">
                 <nav>
                     <ul>
-                        <li><a href="inventory-retailer.html">Inventory</a></li>
+                        <li><a href="Retailer_InventoryManagement_Servlet">Inventory</a></li>
                         <li><a href="surplus-food.html">Surplus Food</a></li>
                         <li><a href="#">Logout</a></li>
                     </ul>

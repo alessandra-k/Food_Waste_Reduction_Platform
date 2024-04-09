@@ -7,6 +7,7 @@ import Model.User;
 
 /**
  * Making changes to see if it is working
+ *
  * @author aless
  */
 public class AddressBusinessLogic {
@@ -16,18 +17,13 @@ public class AddressBusinessLogic {
     public AddressBusinessLogic() {
         addressDAO = new AddressDAOImpl();
     }
-    
+
     public void addAddress(Address address) {
         addressDAO.addAddress(address);
     }
-    
-        public void updateAddress(int addressId, User user) {
-            addressDAO.updateAddress(addressId, user);
-        }
-    
-    
-    
-    
-    
+
+    public void updateAddress(int addressId, User user) {
+        addressDAO.updateAddress(addressId, user);
+    }
 
 }

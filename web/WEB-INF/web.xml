@@ -13,8 +13,8 @@
         <servlet-class>Controller.Registration_Servlet</servlet-class>
     </servlet>
     <servlet>
-        <servlet-name>Retailer_Servlet</servlet-name>
-        <servlet-class>Controller.Retailer_Servlet</servlet-class>
+        <servlet-name>Retailer_InventoryManagement_Servlet</servlet-name>
+        <servlet-class>Controller.Retailer_InventoryManagement_Servlet</servlet-class>
     </servlet>
     <servlet>
         <servlet-name>Charity_Servlet</servlet-name>
@@ -41,8 +41,8 @@
         <url-pattern>/Registration_Servlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
-        <servlet-name>Retailer_Servlet</servlet-name>
-        <url-pattern>/Retailer_Servlet</url-pattern>
+        <servlet-name>Retailer_InventoryManagement_Servlet</servlet-name>
+        <url-pattern>/Retailer_InventoryManagement_Servlet</url-pattern>
     </servlet-mapping>
     <servlet-mapping>
         <servlet-name>Charity_Servlet</servlet-name>

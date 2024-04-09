@@ -4,13 +4,14 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.sql.ResultSet;
 
 /**
  *
  * @author aless
  */
 public class DataSource {
-    
+
     private static Connection connection = null;
 
     /**
@@ -20,8 +21,9 @@ public class DataSource {
     }
 
     /**
-     * Establish a database connection.
-     * Only one connection is used for the entire application to prevent memory leaks.
+     * Establish a database connection. Only one connection is used for the
+     * entire application to prevent memory leaks.
+     *
      * @return The database connection
      */
     public static Connection getConnection() {
@@ -39,13 +41,14 @@ public class DataSource {
         }
         return connection;
     }
-
+    
     /**
      * Closes the database connection and prepared statement resources.
+     *
      * @param connection The database connection to close.
      * @param statement The prepared statement to close.
      */
-    public static void closeConnectionAndResources(Connection connection, PreparedStatement statement) {
+     public static void closeConnectionAndResources(Connection connection, PreparedStatement statement) {
         try {
             if (statement != null) {
                 statement.close();
@@ -57,4 +60,30 @@ public class DataSource {
             ex.printStackTrace();
         }
     }
+
+    /**
+     * Closes the database connection and prepared statement resources.
+     *
+     * @param connection The database connection to close.
+     * @param statement The prepared statement to close.
+     * @param resultSet
+     */
+    public static void closeConnectionAndResources(Connection connection, PreparedStatement statement, ResultSet resultSet) {
+        try {
+            if (resultSet != null) {
+                resultSet.close();
+            }
+            if (statement != null) {
+                statement.close();
+            }
+            if (connection != null) {
+                connection.close();
+            }
+        } catch (SQLException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    
+
 }
