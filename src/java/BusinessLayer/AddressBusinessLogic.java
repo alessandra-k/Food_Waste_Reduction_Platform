@@ -5,7 +5,7 @@ import DataAccessLayer.AddressDAOImpl;
 import Model.Address;
 
 /**
- *
+ * Making changes to see if it is working
  * @author aless
  */
 public class AddressBusinessLogic {
@@ -19,6 +19,9 @@ public class AddressBusinessLogic {
     public void addAddress(Address address) {
         addressDAO.addAddress(address);
     }
+    
+    
+    
     
     
 
