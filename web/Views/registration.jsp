@@ -19,7 +19,7 @@
         <p>Please fill out the form below to register.</p>
     </header>
     <main>
-        <form class="registration-form" method="POST">
+        <form class="registration-form" method="POST" action="Registration_Servlet">
             <div class="form-group">
                 <label for="name">Name:</label>
                 <input type="text" id="name" name="name" required>
@@ -47,12 +47,12 @@
             <div class="form-group">
                 <label>User Type:</label>
                 <div class="radio-buttons">
-                    <input type="radio" id="retailer" name="user-type" value="retailer" required>
+                    <input type="radio" id="retailer" name="user-type" value="RETAILER" required>
                     <label for="retailer">Retailer</label>
-                    <input type="radio" id="consumer" name="user-type" value="consumer" required>
+                    <input type="radio" id="consumer" name="user-type" value="CONSUMER" required>
                     <label for="consumer">Consumer</label>
-                    <input type="radio" id="charitable" name="user-type" value="charitable" required>
-                    <label for="charitable">Charity</label>
+                    <input type="radio" id="charity" name="user-type" value="CHARITY" required>
+                    <label for="charity">Charity</label>
                 </div>
             </div>
             <button type="submit" class="registrationbutton">Register</button>

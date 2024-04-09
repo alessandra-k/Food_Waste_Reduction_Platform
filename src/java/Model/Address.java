@@ -6,25 +6,25 @@ package Model;
  */
 public class Address {
 
-    private int address_id;
+    private Integer address_id;
     private String street;
     private String postalCode;
-    private User user; // Assuming each address belongs to one user
+   private int user_id; //private User user;  Assuming each address belongs to one user
 
     public Address() {
     }
 
-    public Address(String street, String postalCode, User user) {
+    public Address(String street, String postalCode, Integer user_id) {
         this.street = street;
         this.postalCode = postalCode;
-        this.user = user;
+        this.user_id = user_id;
     }
 
-    public int getAddress_id() {
+    public Integer getAddress_id() {
         return address_id;
     }
 
-    public void setAddress_id(int adress_id) {
+    public void setAddress_id(Integer adress_id) {
         this.address_id = adress_id;
     }
 
@@ -44,12 +44,20 @@ public class Address {
         this.postalCode = postalCode;
     }
 
-    public User getUser() {
-        return user;
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
+    
+        public Integer getUser_id() {
+        return user_id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
+    public void setUser_id(Integer user_id) {
+        this.user_id = user_id;
     }
 
 

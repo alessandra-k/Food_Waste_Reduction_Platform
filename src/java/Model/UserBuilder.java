@@ -9,12 +9,12 @@ import java.util.List;
  */
 public class UserBuilder {
 
-    private int user_id;
+    private Integer user_id;
     private String userName;
     private String userEmail;
     private String userPassword;
     private int userType_id;
-    private Address address; // Each user has an address
+    private Integer address_id;
     private String phone;
     private List<Subscription> subscriptions;
 
@@ -31,11 +31,6 @@ public class UserBuilder {
     public static UserBuilder create() {
         return new UserBuilder();
     }
-
-//    public UserBuilder user_id(int user_id) {
-//        this.user_id = user_id;
-//        return this;
-//    }
 
     public UserBuilder userName(String userName) {
         this.userName = userName;
@@ -56,9 +51,9 @@ public class UserBuilder {
         this.userType_id = userType_id;
         return this;
     }
-
-    public UserBuilder address(Address address) {
-        this.address = address;
+    
+        public UserBuilder addressId(Integer address_id) { 
+        this.address_id = address_id;
         return this;
     }
 
@@ -80,7 +75,7 @@ public class UserBuilder {
         return new User(this);
     }
 
-    public int getUser_id() {
+    public Integer getUser_id() {
         return user_id;
     }
 
@@ -99,9 +94,9 @@ public class UserBuilder {
     public int getUserType_id() {
         return userType_id;
     }
-
-    public Address getAddress() {
-        return address;
+    
+        public Integer getAddressId() { 
+        return address_id;
     }
 
     public String getPhone() {

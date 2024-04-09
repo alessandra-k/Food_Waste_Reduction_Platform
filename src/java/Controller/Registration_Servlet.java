@@ -18,9 +18,6 @@ import javax.servlet.http.HttpServletResponse;
  */
 public class Registration_Servlet extends HttpServlet {
 
-    private final UserBusinessLogic userBusinessLogic = new UserBusinessLogic();
-    private final AddressBusinessLogic addressBusinessLogic = new AddressBusinessLogic();
-
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
@@ -31,7 +28,8 @@ public class Registration_Servlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-       String name = request.getParameter("name");
+        // Parse user input from request parameters
+        String name = request.getParameter("name");
         String street = request.getParameter("address");
         String postalCode = request.getParameter("postalCode");
         String phone = request.getParameter("phone");
@@ -39,45 +37,40 @@ public class Registration_Servlet extends HttpServlet {
         String password = request.getParameter("password");
         String userTypeString = request.getParameter("user-type");
 
-        // Convert user type string to UserType enum
-        UserType userType = null;
-        if ("retailer".equals(userTypeString)) {
-            userType = UserType.RETAILER;
-        } else if ("consumer".equals(userTypeString)) {
-            userType = UserType.CONSUMER;
-        } else if ("charitable".equals(userTypeString)) {
-            userType = UserType.CHARITY;
-        }
+        // Convert userTypeString to UserType enum
+        UserType userType = UserType.valueOf(userTypeString);
 
-        // Create User and Address objects
+        // Create Address object
         Address address = new Address();
         address.setStreet(street);
         address.setPostalCode(postalCode);
 
+        UserBusinessLogic userBusinessLogic = new UserBusinessLogic();
+        AddressBusinessLogic addressBusinessLogic = new AddressBusinessLogic();
+
+        // Call business layer to add the address to the database
+        addressBusinessLogic.addAddress(address);
+
+        // Create User object using UserBuilder
         User user = UserBuilder.create()
                 .userName(name)
                 .userEmail(email)
                 .userPassword(password)
-                .userType_id(userType.getId())
-                .address(address)
                 .phone(phone)
+                .userType_id(userType.getId())
+                .addressId(address.getAddress_id())
                 .build();
 
-        try {
-            // Call business logic layer to add user and address
-            userBusinessLogic.addUser(user);
-            addressBusinessLogic.addAddress(address);
+        // Call business layer to add the user to the database
+        userBusinessLogic.addUser(user);
+        addressBusinessLogic.updateAddress(address.getAddress_id(), user);
 
-         
-        } catch (Exception e) {
-            // Log the exception
-            e.printStackTrace();
-            
-  
-        }}
+        // Redirect user to a success page or do other operations as needed
+        request.getRequestDispatcher("/Views/login.jsp").forward(request, response);
+    }
 
-@Override
-public String getServletInfo() {
+    @Override
+    public String getServletInfo() {
         return "Registration Servlet";
     }// </editor-fold>
 

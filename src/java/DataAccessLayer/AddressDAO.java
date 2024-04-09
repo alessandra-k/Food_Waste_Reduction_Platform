@@ -1,6 +1,7 @@
 package DataAccessLayer;
 
 import Model.Address;
+import Model.User;
 import java.util.List;
 
 /**
@@ -15,7 +16,7 @@ public interface AddressDAO {
 
     List<Address> getAllAddresses();
 
-    void updateAddress(int addressId);
+    void updateAddress(int addressId, User user);
 
     void deleteAddress(int addressId);
 
