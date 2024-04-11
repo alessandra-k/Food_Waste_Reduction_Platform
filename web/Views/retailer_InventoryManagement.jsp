@@ -25,8 +25,7 @@
             <div class="inventory-nav">
                 <nav>
                     <ul>
-                        <li><a href="retailers.html">Retailer Home</a></li>
-                        <li><a href="#inventory-list">List</a></li>
+                       <li><a href="Retailer_InventoryManagement_Servlet?action=RetailerHome">Retailer Home</a></li>
                         <li><a href="Retailer_InventoryManagement_Servlet?action=surplus">Surplus Food</a></li>
                         <li><a href="#">Logout</a></li>
                     </ul>

@@ -79,7 +79,7 @@
              <button type="submit" class="button">Update</button>
                 </form>
             </section>
-        <section id="inventorylist" class="inventory-list-section">
+               <section id="inventorylist" class="inventory-list-section">
             <h2>Expiring Items</h2>
             <table>
                 <thead>

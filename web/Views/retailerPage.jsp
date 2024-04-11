@@ -19,7 +19,7 @@
             <div class="navigation-bar">
                 <nav>
                     <ul>
-                        <li><a href="Retailer_InventoryManagement_Servlet">Inventory</a></li>
+                        <li><a href="Retailer_InventoryManagement_Servlet?action=Inventory">Inventory</a></li>
                         <li><a href="Retailer_InventoryManagement_Servlet?action=surplus">Surplus Food</a></li>
                         <li><a href="#">Logout</a></li>
                     </ul>

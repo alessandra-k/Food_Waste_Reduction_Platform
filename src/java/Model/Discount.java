@@ -41,7 +41,7 @@ public enum Discount {
             return discount.description;
         }
     }
-    return null; // Return null if no matching discount is found
+    return "  "; // Return empty string if no matching discount is found
 }
 
     
