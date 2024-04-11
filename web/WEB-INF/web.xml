@@ -36,6 +36,10 @@
         <servlet-name>SurplusItems_Servlet</servlet-name>
         <servlet-class>Controller.SurplusItems_Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>MySubscription_Servlet</servlet-name>
+        <servlet-class>Controller.MySubscription_Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Index_Servlet</servlet-name>
         <url-pattern>/Index_Servlet</url-pattern>
@@ -71,6 +75,10 @@
     <servlet-mapping>
         <servlet-name>SurplusItems_Servlet</servlet-name>
         <url-pattern>/SurplusItems_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>MySubscription_Servlet</servlet-name>
+        <url-pattern>/MySubscription_Servlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
