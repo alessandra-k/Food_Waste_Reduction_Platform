@@ -20,7 +20,7 @@
                 <nav>
                     <ul>
                         <li><a href="purchase.html">Purchase</a></li>
-                        <li><a href="subscription.html">Subscription</a></li>
+                        <li><a href="Subscription_Servlet">Subscription</a></li>
                         <li><a href="index.html">Logout</a></li>
                     </ul>
                 </nav>

@@ -19,3 +19,4 @@ public interface SubscriptionDAO {
 
     void deleteSubscription(int subscriptionId);
 }
+
