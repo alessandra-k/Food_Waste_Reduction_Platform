@@ -30,7 +30,7 @@
     </servlet>
     <servlet>
         <servlet-name>UpdateItem_Servlet</servlet-name>
-        <servlet-class>Controller.UpdateItem_Servlet</servlet-class>
+        <servlet-class>Controller.UpdateInventory_Servlet</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>Index_Servlet</servlet-name>

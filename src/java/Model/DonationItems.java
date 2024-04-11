@@ -1,3 +1,4 @@
+
 package Model;
 
 import java.util.Date;
@@ -6,35 +7,37 @@ import java.util.Date;
  *
  * @author aless
  */
-public class Item {
-
-    private int item_id;
+public class DonationItems {
+    
+    
+    private int itemId;
     private String name;
     private String description;
     private double price;
     private Date expirationDate;
-    private boolean forDonation;
-    private int discount_id;
+    private int quantity;
+    private Boolean isForDonation;
 
-    public Item() {
+    public DonationItems() {
     }
 
-    public Item(int item_id, String name, String description, double price, Date expirationDate) {
-        this.item_id = item_id;
+    public DonationItems(int itemId, String name, String description, double price, Date expirationDate, int quantity) {
+        this.itemId = itemId;
         this.name = name;
         this.description = description;
         this.price = price;
         this.expirationDate = expirationDate;
+        this.quantity = quantity;
     }
-   
+    
     
 
-    public int getItem_id() {
-        return item_id;
+    public int getItemId() {
+        return itemId;
     }
 
-    public void setItem_id(int item_id) {
-        this.item_id = item_id;
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
     }
 
     public String getName() {
@@ -69,19 +72,22 @@ public class Item {
         this.expirationDate = expirationDate;
     }
 
-    public boolean isForDonation() {
-        return forDonation;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setForDonation(boolean forDonation) {
-        this.forDonation = forDonation;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
-    public int getDiscount_id() {
-        return discount_id;
+    public Boolean getIsForDonation() {
+        return isForDonation;
     }
 
-    public void setDiscount_id(int discount_id) {
-        this.discount_id = discount_id;
+    public void setIsForDonation(Boolean isForDonation) {
+        this.isForDonation = isForDonation;
     }
+    
+    
+
 }

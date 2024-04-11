@@ -27,7 +27,7 @@
                     <ul>
                         <li><a href="retailers.html">Retailer Home</a></li>
                         <li><a href="#inventory-list">List</a></li>
-                        <li><a href="surplus-food.html">Surplus Food</a></li>
+                        <li><a href="Retailer_InventoryManagement_Servlet?action=surplus">Surplus Food</a></li>
                         <li><a href="#">Logout</a></li>
                     </ul>
                 </nav>
@@ -57,7 +57,7 @@
                 </form>
             </section>
             <section class="update-quantity-section">
-                <h2>Update Quantity</h2>
+                <h2>Update Item</h2>
                 <form method="POST" action="Retailer_InventoryManagement_Servlet?button=updateItem">
                     <div class="form-group">
                         <label for="itemID">Item ID:</label>
@@ -95,7 +95,7 @@
                         <th>Expiration Date</th>
                         <th>Discount</th>
                         <th>For Donation</th>
-                        <th>Set Quantity</th>
+                        <th> Add Quantity</th>
                     </tr>
                     <%
                         ItemBusinessLogic itemBusinessLogic = new ItemBusinessLogic();
@@ -112,8 +112,10 @@
                         <td><%= item.getExpirationDate()%></td>
                         <td><%= Discount.getDiscountDescriptionById(item.getDiscount_id())%></td>
                         <td><%= item.isForDonation() ? "Yes" : "No"%></td>
-                        <td><input type="number" name="itemQTD" value=""></td>
-                        <td><input type="hidden" name="itemId" value="<%= item.getItem_id()%>"</td>
+                        <td><input type="number" name="itemQTD_<%= item.getItem_id()%>" value=""></td>
+                        <td><input type="hidden" name="itemId_<%= item.getItem_id()%>" value="<%= item.getItem_id()%>"></td>
+
+
                     </tr>
                     <% }%>
 
