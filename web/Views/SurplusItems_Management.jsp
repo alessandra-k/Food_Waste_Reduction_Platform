@@ -19,6 +19,25 @@
 
         <title>Surplus Food Management</title>
         <link rel="stylesheet" href="CSS/style.css" type="text/css">
+        
+          <style>
+    table {
+        border-collapse: collapse;
+        width: 90%; /* Set the table width to 80% of its container */
+        margin: 0 auto; /* Center the table horizontally */
+    }
+    
+    th, td {
+        padding: 20px; /* Add padding to th and td */
+        text-align: left; /* Align text to the left */
+    }
+    
+    th {
+        background-color: #f2f2f2; /* Add background color to table headers */
+    }
+
+    /* Adjust widths for other columns as needed */
+</style>
 
     </head>
     <body>
@@ -42,25 +61,35 @@
         <main>
             <section id="inventorylist" class="inventory-list-section">
                 <h2>Excess Demand Items</h2>
-                <ul>
-                    <%
-                        InventoryBusinessLogic inventoryLogic = new InventoryBusinessLogic();
-                        List<ExcessDemandItems> excessDemandItems = inventoryLogic.getItemsWithExcessDemand();
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Expiration Date</th>
+                            <th>Quantity</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <%
+                            InventoryBusinessLogic inventoryLogic = new InventoryBusinessLogic();
+                            List<ExcessDemandItems> excessDemandItems = inventoryLogic.getItemsWithExcessDemand();
 
-                        for (ExcessDemandItems item : excessDemandItems) {
-                    %>
-                    <li>
-                        <div>
-                            <h3><%= item.getName()%></h3>
-                            <p>Description: <%= item.getDescription()%></p>
-                            <p>Price: <%= item.getPrice()%></p>
-                            <p>Expiration Date: <%= item.getExpirationDate()%></p>
-                            <p>Quantity: <%= item.getQuantity()%></p>
-                        </div>
-                    </li>
-                    <% }%>
-                </ul>
+                            for (ExcessDemandItems item : excessDemandItems) {
+                        %>
+                        <tr>
+                            <td><%= item.getName()%></td>
+                            <td><%= item.getDescription()%></td>
+                            <td><%= item.getPrice()%></td>
+                            <td><%= item.getExpirationDate()%></td>
+                            <td><%= item.getQuantity()%></td>
+                        </tr>
+                        <% }%>
+                    </tbody>
+                </table>
             </section>
+
 
         </main>
         <footer>

@@ -237,13 +237,13 @@ public class InventoryDAOImpl implements InventoryDAO {
 
     @Override
     public List<Item> getItemsCloseToExpiration() {
-
         Connection connection = null;
         PreparedStatement statement = null;
         ResultSet resultSet = null;
         List<Item> itemsCloseToExpiration = new ArrayList<>();
 
         String sqlQuery = "SELECT * FROM Item WHERE expirationDate BETWEEN ? AND ?";
+
         try {
             connection = DataSource.getConnection();
             statement = connection.prepareStatement(sqlQuery);
@@ -270,10 +270,12 @@ public class InventoryDAOImpl implements InventoryDAO {
                 // Convert expirationDate to java.sql.Date
                 LocalDate expirationDateLocalDate = resultSet.getDate("expirationDate").toLocalDate();
                 java.sql.Date expirationDate = java.sql.Date.valueOf(expirationDateLocalDate);
-                 int discountId = resultSet.getInt("discount_id");
+                int discountId = resultSet.getInt("discount_id");
 
                 // Create an Item object and add it to the list
                 Item item = new Item(itemId, name, description, price, expirationDate);
+                item.setDiscount_id(discountId);
+
                 itemsCloseToExpiration.add(item);
             }
         } catch (SQLException ex) {
