@@ -41,12 +41,9 @@ public class ItemBusinessLogic {
         return itemDAO.getAllItems();
     }
 
-    /**
-     * Updates an existing item.
-     * @param item The item with updated information.
-     */
-    public void updateItem(Item item) {
-        itemDAO.updateItem(item);
+    
+    public void updateItem(int itemId, boolean forDonation, int discountId) {
+        itemDAO.updateItem(itemId, forDonation, discountId);
     }
 
     /**
