@@ -270,6 +270,7 @@ public class InventoryDAOImpl implements InventoryDAO {
                 // Convert expirationDate to java.sql.Date
                 LocalDate expirationDateLocalDate = resultSet.getDate("expirationDate").toLocalDate();
                 java.sql.Date expirationDate = java.sql.Date.valueOf(expirationDateLocalDate);
+                 int discountId = resultSet.getInt("discount_id");
 
                 // Create an Item object and add it to the list
                 Item item = new Item(itemId, name, description, price, expirationDate);

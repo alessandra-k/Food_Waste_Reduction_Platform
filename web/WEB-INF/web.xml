@@ -32,6 +32,10 @@
         <servlet-name>UpdateItem_Servlet</servlet-name>
         <servlet-class>Controller.UpdateInventory_Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SurplusItems_Servlet</servlet-name>
+        <servlet-class>Controller.SurplusItems_Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Index_Servlet</servlet-name>
         <url-pattern>/Index_Servlet</url-pattern>
@@ -63,6 +67,10 @@
     <servlet-mapping>
         <servlet-name>UpdateItem_Servlet</servlet-name>
         <url-pattern>/UpdateItem_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SurplusItems_Servlet</servlet-name>
+        <url-pattern>/SurplusItems_Servlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

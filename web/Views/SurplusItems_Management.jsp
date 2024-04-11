@@ -27,11 +27,12 @@
             <div class="surplus-food-nav">
                 <nav>
                     <ul>
-                        <li><a href="retailers.html">Retailer Home</a></li>
-                        <li><a href="#inventorylist">List</a></li>
-                        <li><a href="#flagfood">Flag Food</a></li>
-                        <li><a href="#surplusfood">Donation/Sale</a></li>
-                        <li><a href="inventory-retailer.html">Inventory Management</a></li>
+                        <li><a href="SurplusItems_Servlet?action=RetailerHome">Retailer Home</a></li>
+                        <li><a href="SurplusItems_Servlet?action=InventoryManagement">Inventory Management</a></li>
+                        <li><a href="SurplusItems_Servlet?action=ExcessDemandItems">Excess Demand Items</a></li>
+                        <li><a href="SurplusItems_Servlet?action=ExpiringItems">Expiring Items</a></li>
+                        <li><a href="SurplusItems_Servlet?action=Sales">Sales</a></li>
+                        <li><a href="SurplusItems_Servlet?action=Donation">Donation</a></li>
                         <li><a href="#">Logout</a></li>
                     </ul>
                 </nav>
@@ -60,66 +61,6 @@
                     <% }%>
                 </ul>
             </section>
-            <section id="inventorylist" class="inventory-list-section">
-                <h2>Exipring Items</h2>
-                <ul>
-                    <%
-                        List<Item> expiringItems = inventoryLogic.getItemsCloseToExpiration();
-                        for (Item item : expiringItems) {
-                    %>
-                    <li>
-                        <div>
-                            <h3><%= item.getName()%></h3>
-                            <p>Description: <%= item.getDescription()%></p>
-                            <p>Price: <%= item.getPrice()%></p>
-                            <p>Expiration Date: <%= item.getExpirationDate()%></p>
-                        </div>
-                    </li>
-                    <% }%>
-                </ul>
-            </section>
-            <section id="inventorylist" class="inventory-list-section">
-                <h2>Sale Items List</h2>
-                <ul>
-                    <%
-                        List<SalesItems> salesItems = inventoryLogic.getItemsWithDiscount();
-
-                        for (SalesItems salesItem : salesItems) {%>
-                    <li>
-                        <div>
-                            <h3><%= salesItem.getName()%></h3>
-                            <p>Description: <%= salesItem.getDescription()%></p>
-                            <p>Price: <%= salesItem.getPrice()%></p>
-                            <p>Expiration Date: <%= salesItem.getExpirationDate()%></p>
-                            <p>Quantity: <%= salesItem.getQuantity()%></p>
-                            <p>Discount: <%= salesItem.getDiscountDescription()%></p>
-                        </div>
-                    </li>
-                    <% }%>
-                </ul>
-            </section>
-
-            <section id="surplusfood" class="surplus-list-section">
-                <h2>Donation List</h2>
-                <ul>
-                    <%
-
-                        List<DonationItems> donationItems = inventoryLogic.getDonationItems();
-
-                        for (DonationItems donationItem : donationItems) {%>
-                    <li>
-                        <div>
-                            <h3><%= donationItem.getName()%></h3>
-                            <p>Description: <%= donationItem.getDescription()%></p>
-                            <p>Price: <%= donationItem.getPrice()%></p>
-                            <p>Expiration Date: <%= donationItem.getExpirationDate()%></p>
-                            <p>Quantity: <%= donationItem.getQuantity()%></p>
-                        </div>
-                    </li>
-                    <% }%>
-                </ul>
-            </section>
-
 
         </main>
         <footer>
