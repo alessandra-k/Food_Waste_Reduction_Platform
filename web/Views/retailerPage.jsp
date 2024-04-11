@@ -44,7 +44,7 @@
                     <ul>
                         <li><a href="Retailer_InventoryManagement_Servlet?action=Inventory">Inventory</a></li>
                         <li><a href="Retailer_InventoryManagement_Servlet?action=surplus">Surplus Food</a></li>
-                        <li><a href="#">Logout</a></li>
+                        <li><a href="Retailer_InventoryManagement_Servlet?action=Logout">Logout</a></li>
                     </ul>
                 </nav>
             </div>

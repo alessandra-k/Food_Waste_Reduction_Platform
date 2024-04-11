@@ -35,7 +35,7 @@ public class SurplusItems_Servlet extends HttpServlet {
                     request.getRequestDispatcher("/Views/Donation_Management.jsp").forward(request, response);
 
                 default -> {
-                }
+                    request.getRequestDispatcher("/Views/login.jsp").forward(request, response);                }
             }
         } else {
 

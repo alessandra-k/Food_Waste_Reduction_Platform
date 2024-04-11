@@ -42,11 +42,11 @@ public class Login_Servlet extends HttpServlet {
         session.setAttribute("user", user);
         
         // Set the maximum age of the session to 10 seconds
-        session.setMaxInactiveInterval(10*60);
+        session.setMaxInactiveInterval(5);
 
         // Create a Cookie to store the user's email
         Cookie emailCookie = new Cookie("userEmail", email);
-        emailCookie.setMaxAge(10*60); 
+        emailCookie.setMaxAge(5); 
         response.addCookie(emailCookie);
 
         // Determine the user type and redirect accordingly

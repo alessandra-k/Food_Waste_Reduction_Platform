@@ -33,6 +33,7 @@ public class Retailer_InventoryManagement_Servlet extends HttpServlet {
                 case "Inventory" ->
                     request.getRequestDispatcher("/Views/retailer_InventoryManagement.jsp").forward(request, response);
                 default -> {
+                    request.getRequestDispatcher("/Views/login.jsp").forward(request, response);
                 }
             }
         } else {
