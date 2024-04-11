@@ -19,7 +19,7 @@ public class ItemDAOImpl implements ItemDAO {
     public void addItem(Item item) {
         Connection connection = null;
         PreparedStatement statement = null;
-        String sqlQuery = "INSERT INTO Item (name, description, price, expirationDate, forDonation, discount_id) VALUES (?, ?, ?, ?, ?, ?)";
+        String sqlQuery = "INSERT INTO Item (name, description, price, expirationDate) VALUES (?, ?, ?, ?)";
         ResultSet generatedKeys = null;
 
         try {
@@ -30,9 +30,7 @@ public class ItemDAOImpl implements ItemDAO {
             statement.setString(2, item.getDescription());
             statement.setDouble(3, item.getPrice());
             statement.setDate(4, new java.sql.Date(item.getExpirationDate().getTime()));
-            statement.setBoolean(5, item.isForDonation());
-            statement.setInt(6, item.getDiscount_id());
-            
+
             int rowsAffected = statement.executeUpdate();
 
             if (rowsAffected == 1) {
@@ -118,24 +116,20 @@ public class ItemDAOImpl implements ItemDAO {
     }
 
     @Override
-    public void updateItem(Item item) {
+    public void updateItem(int itemId, boolean forDonation, int discountId) {
         Connection connection = null;
         PreparedStatement statement = null;
-        String sqlQuery = "UPDATE Item SET name = ?, description = ?, price = ?, expirationDate = ?, forDonation = ?, discount_id = ? WHERE item_id = ?";
-
+        String sqlQuery = "UPDATE Item SET forDonation = ?, discount_id = ? WHERE item_id = ?";
         try {
             connection = DataSource.getConnection();
             statement = connection.prepareStatement(sqlQuery);
 
-            statement.setString(1, item.getName());
-            statement.setString(2, item.getDescription());
-            statement.setDouble(3, item.getPrice());
-            statement.setDate(4, new java.sql.Date(item.getExpirationDate().getTime()));
-            statement.setBoolean(5, item.isForDonation());
-            statement.setInt(6, item.getDiscount_id());
-            statement.setInt(7, item.getItem_id());
-            statement.executeUpdate();
+            statement.setBoolean(1, forDonation);
+            statement.setInt(2, discountId);
+            statement.setInt(3, itemId);
 
+            // Execute the update
+            statement.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {

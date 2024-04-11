@@ -9,13 +9,17 @@ import java.util.List;
  */
 public interface InventoryDAO {
 
-    void addInventory(Inventory inventory);
+    void addToInventory(String inventoryType, int subclassId, int itemId, int quantity);
 
     Inventory getInventoryById(int inventoryId);
 
     List<Inventory> getAllInventories();
 
-    void updateInventory(int inventoryId);
+    void updateInventory(int itemId, int quantity);
 
     void deleteInventory(int inventoryId);
+    
+        public void deleteItem_FromIventory(int itemID) ;
+        
+        boolean itemExists(int itemId);
 }

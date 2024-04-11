@@ -1,8 +1,7 @@
 package Model;
 
-import java.time.LocalDate;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  *
@@ -10,11 +9,11 @@ import java.util.List;
  */
 public class Inventory {
 
-    private int inventory_id;
-    private int quantity;
-    private List<Item> itemsList;
+   private int inventory_id;
+    private Map<Item, Integer> itemQuantity;
 
     public Inventory() {
+        this.itemQuantity = new HashMap<>();
     }
 
     public int getInventory_id() {
@@ -25,31 +24,21 @@ public class Inventory {
         this.inventory_id = inventory_id;
     }
 
-    public int getQuantity() {
-        return quantity;
+    public Map<Item, Integer> getItemQuantityMap() {
+        return itemQuantity;
     }
 
-    public void setQuantity(int quantity) {
-        this.quantity = quantity;
+    public void addItem(Item item, int quantity) {
+        itemQuantity.put(item, quantity);
     }
 
-    public List<Item> getItemsList() {
-        return itemsList;
-    }
-
-    public void addItem(Item item) {
-        if (itemsList == null) {
-            itemsList = new ArrayList<>();
+    public void updateItemQuantity(Item item, int newQuantity) {
+        if (itemQuantity.containsKey(item)) {
+            itemQuantity.put(item, newQuantity);
         }
-        itemsList.add(item);
     }
 
-    public List<Item> getSurplusItems() {
-        List<Item> surplusItems = new ArrayList<>();
-        LocalDate today = LocalDate.now();
-        LocalDate oneWeekLater = today.plusWeeks(1);
-
-        //TO DO: implementation
-        return surplusItems;
+    public void removeItem(Item item) {
+        itemQuantity.remove(item);
     }
 }

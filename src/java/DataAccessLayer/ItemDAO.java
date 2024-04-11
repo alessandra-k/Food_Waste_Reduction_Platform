@@ -15,7 +15,7 @@ public interface ItemDAO {
 
     List<Item> getAllItems();
 
-    void updateItem(Item item);
+    void updateItem(int itemId, boolean forDonation, int discountId);
 
     void deleteItem(int itemId);
 }

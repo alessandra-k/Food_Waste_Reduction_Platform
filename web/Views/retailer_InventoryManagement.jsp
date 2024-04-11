@@ -4,6 +4,8 @@
     Author     : aless
 --%>
 
+<%@page import="java.util.Map"%>
+<%@page import="Model.Inventory"%>
 <%@page import="Model.Discount"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="Model.Item"%>
@@ -34,7 +36,7 @@
         <main>
             <section class="add-item-section">
                 <h2>Add New Item</h2>
-                <form method="POST" action="Retailer_InventoryManagement_Servlet">
+                <form method="POST" action="Retailer_InventoryManagement_Servlet?button=addItem">
                     <div class="form-group">
                         <label for="name">Name:</label>
                         <input type="text" id="name" name="name" required>
@@ -51,6 +53,16 @@
                         <label for="expiration">Expiration Date:</label>
                         <input type="date" id="expiration" name="expiration" required>
                     </div>
+                    <button type="submit" class="button">Add Item</button>
+                </form>
+            </section>
+            <section class="update-quantity-section">
+                <h2>Update Quantity</h2>
+                <form method="POST" action="Retailer_InventoryManagement_Servlet?button=updateItem">
+                    <div class="form-group">
+                        <label for="itemID">Item ID:</label>
+                        <input type="number" id="itemID" name="itemID" required>
+                    </div>
                     <div class="form-group">
                         <label for="discount">Discount:</label>
                         <select id="discount" name="discount">
@@ -66,47 +78,53 @@
                         <label for="donation">For Donation:</label>
                         <input type="checkbox" id="donation" name="donation">
                     </div>
-                    <button type="submit" class="button">Add Item</button>
-                </form>
-            </section>
-            <section class="update-quantity-section">
-                <h2>Update Quantity</h2>
-                <form>
-                    <div class="form-group">
-                        <label for="item-name">Item Name:</label>
-                        <input type="text" id="item-name" name="item-name" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="quantity">Quantity:</label>
-                        <input type="number" id="quantity" name="quantity" required>
-                    </div>
                     <button type="submit" class="button">Update</button>
                 </form>
             </section>
-            <section id="inventory-list" class="inventory-list-section">
-                <h2>Inventory List</h2>
-                <%
-                    ItemBusinessLogic itemBusinessLogic = new ItemBusinessLogic();
-                    List<Item> itemsList = itemBusinessLogic.getAllItems();
-                    
-                    for (Item item : itemsList) {
-                %>
-                <div>
-                    <p>Item Id: <%=item.getItem_id()%></p>
-                    <p>Name: <%= item.getName()%></p>
-                    <p>Description: <%= item.getDescription()%></p>
-                    <p>Price: <%= item.getPrice()%></p>
-                    <p>Expiration Date: <%= item.getExpirationDate()%></p>
-                    <p>Discount: <%= Discount.getDiscountDescriptionById(item.getDiscount_id()) %></p>
-                    <p>For Donation: <%= item.isForDonation() ? "Yes" : "No"%></p>
-                    <br>
-                </div>
-                <% }%>
-            </section>
-        </main>
-        <footer>
-            <p>&copy; 2024 Food Waste Reduction Platform. All rights reserved.</p>
-        </footer>
-    </body>
-</html>
+        </form>
+        <section id="inventory-list" class="inventory-list-section">
+            <h2>Inventory List</h2>
+            <br>
+            <form method="POST" action="UpdateItem_Servlet">
+                <table>
+                    <tr>
+                        <th>Item Id</th> 
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Price</th>
+                        <th>Expiration Date</th>
+                        <th>Discount</th>
+                        <th>For Donation</th>
+                        <th>Set Quantity</th>
+                    </tr>
+                    <%
+                        ItemBusinessLogic itemBusinessLogic = new ItemBusinessLogic();
+                        List<Item> itemsList = itemBusinessLogic.getAllItems();
 
+                        for (Item item : itemsList) {
+                    %>
+                    <tr>
+
+                        <td><%= item.getItem_id()%></td>
+                        <td><%= item.getName()%></td>
+                        <td><%= item.getDescription()%></td>
+                        <td><%= item.getPrice()%></td>
+                        <td><%= item.getExpirationDate()%></td>
+                        <td><%= Discount.getDiscountDescriptionById(item.getDiscount_id())%></td>
+                        <td><%= item.isForDonation() ? "Yes" : "No"%></td>
+                        <td><input type="number" name="itemQTD" value=""></td>
+                        <td><input type="hidden" name="itemId" value="<%= item.getItem_id()%>"</td>
+                    </tr>
+                    <% }%>
+
+                </table>
+                <button type="submit" class="button">Update</button>
+            </form>
+
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Food Waste Reduction Platform. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -28,6 +28,10 @@
         <servlet-name>Subscription_Servlet</servlet-name>
         <servlet-class>Controller.Subscription_Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>UpdateItem_Servlet</servlet-name>
+        <servlet-class>Controller.UpdateItem_Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Index_Servlet</servlet-name>
         <url-pattern>/Index_Servlet</url-pattern>
@@ -55,6 +59,10 @@
     <servlet-mapping>
         <servlet-name>Subscription_Servlet</servlet-name>
         <url-pattern>/Subscription_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>UpdateItem_Servlet</servlet-name>
+        <url-pattern>/UpdateItem_Servlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
