@@ -1,21 +1,20 @@
 package Model;
 
-import java.util.HashMap;
-import java.util.Map;
-
 /**
  *
  * @author aless
  */
 public class Inventory {
 
-   private int inventory_id;
-    private Map<Item, Integer> itemQuantity;
+  private int inventory_id;
+    private int item_id;
+    private int quantity;
 
     public Inventory() {
-        this.itemQuantity = new HashMap<>();
+        // Default constructor
     }
 
+    // Getters and setters
     public int getInventory_id() {
         return inventory_id;
     }
@@ -24,21 +23,19 @@ public class Inventory {
         this.inventory_id = inventory_id;
     }
 
-    public Map<Item, Integer> getItemQuantityMap() {
-        return itemQuantity;
+    public int getItem_id() {
+        return item_id;
     }
 
-    public void addItem(Item item, int quantity) {
-        itemQuantity.put(item, quantity);
+    public void setItem_id(int item_id) {
+        this.item_id = item_id;
     }
 
-    public void updateItemQuantity(Item item, int newQuantity) {
-        if (itemQuantity.containsKey(item)) {
-            itemQuantity.put(item, newQuantity);
-        }
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void removeItem(Item item) {
-        itemQuantity.remove(item);
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 }

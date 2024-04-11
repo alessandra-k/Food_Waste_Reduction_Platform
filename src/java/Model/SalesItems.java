@@ -6,35 +6,35 @@ import java.util.Date;
  *
  * @author aless
  */
-public class Item {
+public class SalesItems {
 
-    private int item_id;
+    private int itemId;
     private String name;
     private String description;
     private double price;
     private Date expirationDate;
-    private boolean forDonation;
-    private int discount_id;
+    private int quantity;
+    private String discountDescription;
 
-    public Item() {
+    public SalesItems() {
     }
 
-    public Item(int item_id, String name, String description, double price, Date expirationDate) {
-        this.item_id = item_id;
+    public SalesItems(int itemId, String name, String description, double price, Date expirationDate, int quantity, String discountDescription) {
+        this.itemId = itemId;
         this.name = name;
         this.description = description;
         this.price = price;
         this.expirationDate = expirationDate;
-    }
-   
-    
-
-    public int getItem_id() {
-        return item_id;
+        this.quantity = quantity;
+        this.discountDescription = discountDescription;
     }
 
-    public void setItem_id(int item_id) {
-        this.item_id = item_id;
+    public int getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(int itemId) {
+        this.itemId = itemId;
     }
 
     public String getName() {
@@ -69,19 +69,22 @@ public class Item {
         this.expirationDate = expirationDate;
     }
 
-    public boolean isForDonation() {
-        return forDonation;
+    public int getQuantity() {
+        return quantity;
     }
 
-    public void setForDonation(boolean forDonation) {
-        this.forDonation = forDonation;
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
     }
 
-    public int getDiscount_id() {
-        return discount_id;
+    public String getDiscountDescription() {
+        return discountDescription;
     }
 
-    public void setDiscount_id(int discount_id) {
-        this.discount_id = discount_id;
+    public void setDiscountDescription(String discountDescription) {
+        this.discountDescription = discountDescription;
     }
+    
+    
+
 }

@@ -20,7 +20,13 @@ public class Retailer_InventoryManagement_Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.getRequestDispatcher("/Views/retailer_InventoryManagement.jsp").forward(request, response);
+        
+           String action = request.getParameter("action");
+       
+           if ("surplus".equals(action)) {
+            request.getRequestDispatcher("/Views/SurplusItems_Management.jsp").forward(request, response);
+        }  
+           request.getRequestDispatcher("/Views/retailer_InventoryManagement.jsp").forward(request, response);
     }
 
     @Override

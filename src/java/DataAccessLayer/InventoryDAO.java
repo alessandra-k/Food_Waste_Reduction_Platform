@@ -1,6 +1,10 @@
 package DataAccessLayer;
 
+import Model.DonationItems;
+import Model.ExcessDemandItems;
 import Model.Inventory;
+import Model.Item;
+import Model.SalesItems;
 import java.util.List;
 
 /**
@@ -9,17 +13,25 @@ import java.util.List;
  */
 public interface InventoryDAO {
 
-    void addToInventory(String inventoryType, int subclassId, int itemId, int quantity);
+    void addToInventory(int itemId, int quantity);
 
     Inventory getInventoryById(int inventoryId);
 
     List<Inventory> getAllInventories();
 
     void updateInventory(int itemId, int quantity);
+    
+    List<SalesItems> getItemsWithDiscount();
+    
+    List<DonationItems> getDonationItems();
+    
+    List<ExcessDemandItems> getItemsWithExcessDemand();
+    
+    List<Item> getItemsCloseToExpiration();
 
     void deleteInventory(int inventoryId);
-    
-        public void deleteItem_FromIventory(int itemID) ;
-        
-        boolean itemExists(int itemId);
+
+    public void deleteItem_FromIventory(int itemID);
+
+    boolean itemExists(int itemId);
 }
