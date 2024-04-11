@@ -19,7 +19,7 @@ public class ItemDAOImpl implements ItemDAO {
     public void addItem(Item item) {
         Connection connection = null;
         PreparedStatement statement = null;
-        String sqlQuery = "INSERT INTO Item (name, description, price, expirationDate) VALUES (?, ?, ?, ?)";
+        String sqlQuery = "INSERT INTO Item (name, description, price, expirationDate, discount_id) VALUES (?, ?, ?, ?,?)";
         ResultSet generatedKeys = null;
 
         try {
@@ -30,6 +30,7 @@ public class ItemDAOImpl implements ItemDAO {
             statement.setString(2, item.getDescription());
             statement.setDouble(3, item.getPrice());
             statement.setDate(4, new java.sql.Date(item.getExpirationDate().getTime()));
+            statement.setInt(5,1);
 
             int rowsAffected = statement.executeUpdate();
 

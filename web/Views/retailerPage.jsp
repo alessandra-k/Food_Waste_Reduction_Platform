@@ -4,6 +4,7 @@
     Author     : aless
 --%>
 
+<%@page import="Model.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
@@ -14,6 +15,28 @@
         <link rel="stylesheet" href="CSS/style.css" type="text/css"/>
     </head>
     <body>
+        <%
+            HttpSession httpSession = request.getSession(false);
+            Cookie[] cookies = request.getCookies();
+            String userEmail = null;
+
+            if (httpSession != null) {
+                User user = (User) httpSession.getAttribute("user");
+                if (user != null) {
+
+                    userEmail = user.getUserEmail();
+                }
+            }
+
+            if (userEmail == null && cookies != null) {
+                for (Cookie cookie : cookies) {
+                    if (cookie.getName().equals("userEmail")) {
+                        userEmail = cookie.getValue();
+                        break;
+                    }
+                }
+            }
+        %>
         <header>
             <h1>Welcome Retailer</h1>
             <div class="navigation-bar">
@@ -46,5 +69,13 @@
         <footer>
             <p>&copy; 2024 Food Waste Reduction Platform. All rights reserved.</p>
         </footer>
+
+        <div>
+            <% if (userEmail != null) {%>
+            <p>User Email: <%= userEmail%></p>
+            <% } else { %>
+            <p>User not logged in.</p>
+            <% }%>
+        </div>
     </body>
 </html>
