@@ -60,7 +60,7 @@ public class UserDAOImpl implements UserDAO {
         String sqlQuery = "SELECT * FROM User WHERE userEmail = ? AND userPassword = ?";
 
         try {
-     
+
             connection = DataSource.getConnection();
             statement = connection.prepareStatement(sqlQuery);
 
@@ -89,30 +89,21 @@ public class UserDAOImpl implements UserDAO {
     }
 
     @Override
-    public User getUserById(int userId
-    ) {
-
+    public User getUserById(int userId) {
         return null;
-
     }
 
     @Override
     public List<User> getAllUsers() {
-
         return null;
-
     }
 
     @Override
-    public void updateUser(int userId
-    ) {
-
+    public void updateUser(int userId) {
     }
 
     @Override
-    public void deleteUser(int userId
-    ) {
-
+    public void deleteUser(int userId) {
     }
 
 }

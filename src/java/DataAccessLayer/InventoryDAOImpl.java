@@ -371,29 +371,28 @@ public class InventoryDAOImpl implements InventoryDAO {
 
     @Override
     public List<Inventory> getAllInventories() {
-//        Connection connection = null;
-//        PreparedStatement statement = null;
-//        ResultSet resultSet = null;
-//        List<Inventory> inventories = new ArrayList<>();
-//        String sqlQuery = "SELECT * FROM Inventory";
-//        try {
-//            connection = DataSource.getConnection();
-//            statement = connection.prepareStatement(sqlQuery);
-//            resultSet = statement.executeQuery();
-//            while (resultSet.next()) {
-//                Inventory inventory = new Inventory();
-//                inventory.setInventory_id(resultSet.getInt("inventory_id"));
-//                // Add more fields as needed
-//                inventories.add(inventory);
-//            }
-//        } catch (SQLException e) {
-//            e.printStackTrace();
-//        } finally {
-//            closeConnectionAndResources(connection, statement, resultSet);
-//        }
-//        return inventories;
-        return null; //DELETE IT WHEN IMPLEMENTING
-    }
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        List<Inventory> inventories = new ArrayList<>();
+        String sqlQuery = "SELECT * FROM Inventory";
+        try {
+            connection = DataSource.getConnection();
+            statement = connection.prepareStatement(sqlQuery);
+            resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Inventory inventory = new Inventory();
+                inventory.setInventory_id(resultSet.getInt("inventory_id"));
+                // Add more fields as needed
+                inventories.add(inventory);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeConnectionAndResources(connection, statement, resultSet);
+        }
+        return inventories;
+        }
 
     @Override
     public void deleteItem_FromIventory(int itemID) {
@@ -412,10 +411,7 @@ public class InventoryDAOImpl implements InventoryDAO {
         }
     }
 
-    @Override
-    public void deleteInventory(int inventoryId) {
 
-    }
 
     @Override
     public General_Items_Inventory getItemById(int itemId) {

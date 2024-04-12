@@ -25,10 +25,8 @@ public class Item {
         this.description = description;
         this.price = price;
         this.expirationDate = expirationDate;
-    }
-   
+    }   
     
-
     public int getItem_id() {
         return item_id;
     }

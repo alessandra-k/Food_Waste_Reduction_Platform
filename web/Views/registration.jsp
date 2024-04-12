@@ -57,9 +57,6 @@
             </div>
             <button type="submit" class="registrationbutton">Register</button>
         </form>
-        <div id="loginlink">
-            <p>If you are already a registered user you can login here: <a href="login.html">Login</a></p>
-        </div>
     </main>
     <footer>
         <p>&copy; 2024 Food Waste Reduction Platform. All rights reserved.</p>

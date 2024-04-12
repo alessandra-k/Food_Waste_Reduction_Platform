@@ -13,13 +13,15 @@ public interface SubscriptionDAO {
 
     Subscription getSubscriptionById(int subscriptionId);
 
+    Subscription getSubscriptionByUserId(int user_id);
+
+    void deleteSubscriptionByUserId(int user_id);
+
     List<Subscription> getAllSubscriptions();
 
     void updateSubscription(int subscriptionId);
 
     //Peace Added this
     void deleteSubscription(int subscriptionId);
-    Subscription getSubscriptionByUserId(int user_id);
-    void deleteSubscriptionByUserId(int user_id);
-}
 
+}

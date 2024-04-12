@@ -14,13 +14,12 @@ import java.util.List;
  */
 public interface InventoryDAO {
 
+    boolean itemExists(int itemId);
+
     void addToInventory(int itemId, int quantity);
 
-   General_Items_Inventory getItemById(int itemId);
-
-    List<Inventory> getAllInventories();
-
     void updateInventory(int itemId, int quantity);
+
     void updateInventory_ReduceQuantity(int itemId, int quantity);
 
     List<SalesItems> getItemsWithDiscount();
@@ -33,9 +32,10 @@ public interface InventoryDAO {
 
     List<General_Items_Inventory> getItemsAvailableForPurchase();
 
-    void deleteInventory(int inventoryId);
+    General_Items_Inventory getItemById(int itemId);
+
+    List<Inventory> getAllInventories();
 
     public void deleteItem_FromIventory(int itemID);
 
-    boolean itemExists(int itemId);
 }
