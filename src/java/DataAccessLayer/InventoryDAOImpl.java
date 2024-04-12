@@ -3,6 +3,7 @@ package DataAccessLayer;
 import static DataAccessLayer.DataSource.closeConnectionAndResources;
 import Model.DonationItems;
 import Model.ExcessDemandItems;
+import Model.General_Items_Inventory;
 import Model.Inventory;
 import Model.Item;
 import Model.SalesItems;
@@ -113,6 +114,44 @@ public class InventoryDAOImpl implements InventoryDAO {
     }
 
     @Override
+    public void updateInventory_ReduceQuantity(int itemId, int quantity) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+
+        String updateQuery = "UPDATE Inventory SET quantity = quantity - ? WHERE item_id = ? AND quantity >= ?";
+
+        try {
+            connection = DataSource.getConnection();
+            statement = connection.prepareStatement(updateQuery);
+            statement.setInt(1, quantity);
+            statement.setInt(2, itemId);
+            statement.setInt(3, quantity);
+
+            int rowsUpdated = statement.executeUpdate();
+
+            if (rowsUpdated == 0) {
+                System.out.println("Insufficient quantity in inventory for item ID: " + itemId);
+            } else {
+                // Commit the transaction if the update was successful
+                connection.commit();
+            }
+        } catch (SQLException e) {
+            try {
+                // Rollback the transaction in case of any exception
+                if (connection != null) {
+                    connection.rollback();
+                }
+                e.printStackTrace();
+            } catch (SQLException ex) {
+                ex.printStackTrace();
+            }
+        } finally {
+            // Close connection and resources
+            closeConnectionAndResources(connection, statement);
+        }
+    }
+
+    @Override
     public List<SalesItems> getItemsWithDiscount() {
 
         Connection connection = null;
@@ -125,7 +164,7 @@ public class InventoryDAOImpl implements InventoryDAO {
                 + "FROM Item i "
                 + "JOIN Inventory inv ON i.item_id = inv.item_id "
                 + "JOIN Discount d ON i.discount_id = d.discount_id "
-                + "WHERE i.discount_id > 1";
+                + "WHERE i.discount_id > 1 AND i.forDonation = 0";
 
         try {
             connection = DataSource.getConnection();
@@ -288,6 +327,49 @@ public class InventoryDAOImpl implements InventoryDAO {
     }
 
     @Override
+    public List<General_Items_Inventory> getItemsAvailableForPurchase() {
+
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        List<General_Items_Inventory> availableItems = new ArrayList<>();
+
+        // SQL query to join Item, Inventory, and Discount tables
+        String sqlQuery = "SELECT i.item_id, i.name, i.description, i.price, i.expirationDate, inv.quantity, d.discount_description "
+                + "FROM Item i "
+                + "JOIN Inventory inv ON i.item_id = inv.item_id "
+                + "JOIN Discount d ON i.discount_id = d.discount_id "
+                + "WHERE i.forDonation = false";
+
+        try {
+            connection = DataSource.getConnection();
+            statement = connection.prepareStatement(sqlQuery);
+            resultSet = statement.executeQuery();
+
+            while (resultSet.next()) {
+                // Retrieve item details from the result set
+                int itemId = resultSet.getInt("item_id");
+                String name = resultSet.getString("name");
+                String description = resultSet.getString("description");
+                double price = resultSet.getDouble("price");
+                Date expirationDate = resultSet.getDate("expirationDate");
+                int quantity = resultSet.getInt("quantity");
+                String discountDescription = resultSet.getString("discount_description");
+
+                // Create an Item object and add it to the list
+                General_Items_Inventory item = new General_Items_Inventory(itemId, name, description, price, expirationDate, quantity, discountDescription);
+                availableItems.add(item);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeConnectionAndResources(connection, statement, resultSet);
+        }
+
+        return availableItems;
+    }
+
+    @Override
     public List<Inventory> getAllInventories() {
 //        Connection connection = null;
 //        PreparedStatement statement = null;
@@ -336,7 +418,41 @@ public class InventoryDAOImpl implements InventoryDAO {
     }
 
     @Override
-    public Inventory getInventoryById(int inventoryId) {
-        return null;
+    public General_Items_Inventory getItemById(int itemId) {
+        Connection connection = null;
+        PreparedStatement statement = null;
+        ResultSet resultSet = null;
+        General_Items_Inventory item = null;
+
+        String query = "SELECT i.item_id, i.name, i.description, i.price, i.expirationDate, inv.quantity, d.discount_description "
+                + "FROM Item i "
+                + "JOIN Inventory inv ON i.item_id = inv.item_id "
+                + "JOIN Discount d ON i.discount_id = d.discount_id "
+                + "WHERE i.item_id = ?";
+
+        try {
+            connection = DataSource.getConnection();
+            statement = connection.prepareStatement(query);
+            statement.setInt(1, itemId);
+            resultSet = statement.executeQuery();
+
+            if (resultSet.next()) {
+                int retrievedItemId = resultSet.getInt("item_id");
+                String name = resultSet.getString("name");
+                String description = resultSet.getString("description");
+                double price = resultSet.getDouble("price");
+                java.util.Date expirationDate = resultSet.getDate("expirationDate");
+                int quantity = resultSet.getInt("quantity");
+                String discountDescription = resultSet.getString("discount_description");
+
+                item = new General_Items_Inventory(retrievedItemId, name, description, price, expirationDate, quantity, discountDescription);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } finally {
+            closeConnectionAndResources(connection, statement, resultSet);
+        }
+
+        return item;
     }
 }
