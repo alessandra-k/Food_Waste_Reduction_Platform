@@ -13,9 +13,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
- * Allan Testing.
+ * Peace Added this.
  *
  * @author aless
  */
@@ -36,11 +37,15 @@ public class Subscription_Servlet extends HttpServlet {
     
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        // Assuming you have a session attribute named "userId" where you store the current user's ID
+//    HttpSession session = request.getSession();
+//    int user_id = (int) session.getAttribute("user_id");
+
         // Retrieve form data
         String neighborhood = request.getParameter("neighborhood");
         int communicationMethodId = Integer.parseInt(request.getParameter("communicationMethod"));
         String[] foodPreferenceIds = request.getParameterValues("foodPreferences");
-        int userId = 1; // Assuming you have user authentication and already have the user ID
+        int user_id = 1; // Assuming you have user authentication and already have the user ID
 
         // Convert foodPreferenceIds to a list of string values
         List<String> foodPreferenceList = Arrays.asList(foodPreferenceIds);
@@ -50,10 +55,14 @@ public class Subscription_Servlet extends HttpServlet {
         subscription.setNeighbourhood_id(Integer.parseInt(neighborhood));
         subscription.setCommunicationMethod_id(communicationMethodId);
         subscription.setFoodPreferences(foodPreferenceList); // Pass the list of string preferences
-        subscription.setUser_id(userId);
+        subscription.setUser_id(user_id);
 
         // Add subscription to database
         subscriptionDAO.addSubscription(subscription);
+        
+        // Store selected food preferences in session
+        HttpSession session = request.getSession();
+        session.setAttribute("selectedFoodPreferences", foodPreferenceList);
 
         // Set success message
         request.setAttribute("successMessage", "Subscription successful!");
@@ -61,6 +70,9 @@ public class Subscription_Servlet extends HttpServlet {
         // Forward to the same page with the success message
         request.getRequestDispatcher("/Views/subscriptionPage.jsp").forward(request, response);
 }
+
+    
+   
 
     
      @Override

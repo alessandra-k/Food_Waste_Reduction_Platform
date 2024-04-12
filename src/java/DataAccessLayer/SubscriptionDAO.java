@@ -17,6 +17,9 @@ public interface SubscriptionDAO {
 
     void updateSubscription(int subscriptionId);
 
+    //Peace Added this
     void deleteSubscription(int subscriptionId);
+    Subscription getSubscriptionByUserId(int user_id);
+    void deleteSubscriptionByUserId(int user_id);
 }
 

@@ -21,7 +21,7 @@
                 <ul>
                     <li><a href="charity-claim.html">Claim Food</a></li>
                     <li><a href="subscription.html">Subscription</a></li>
-                    <li><a href="#">Logout</a></li>
+                    <li><a href="index.html">Logout</a></li>
                 </ul>
             </nav>
         </div>

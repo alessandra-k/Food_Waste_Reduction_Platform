@@ -52,7 +52,7 @@
                         <li><a href="SurplusItems_Servlet?action=ExpiringItems">Expiring Items</a></li>
                         <li><a href="SurplusItems_Servlet?action=Sales">Sales</a></li>
                         <li><a href="SurplusItems_Servlet?action=Donation">Donation</a></li>
-                        <li><a href="#">Logout</a></li>
+                        <li><a href="index.html">Logout</a></li>
                     </ul>
                 </nav>
             </div>
@@ -88,7 +88,10 @@
                         <% }%>
                     </tbody>
                 </table>
+                    
+
             </section>
+                    <a href="SurplusItems_Servlet?action=downloadPDF">Download PDF</a>
 
 
         </main>

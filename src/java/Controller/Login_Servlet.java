@@ -41,6 +41,8 @@ public class Login_Servlet extends HttpServlet {
         // Store user information in the session
         session.setAttribute("user", user);
         
+
+        
         // Set the maximum age of the session to 10 seconds
         session.setMaxInactiveInterval(10*60);
 

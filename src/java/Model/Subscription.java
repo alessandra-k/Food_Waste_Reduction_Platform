@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- *
+ * 
  * @author aless
  */
 public class Subscription {
@@ -17,6 +17,7 @@ public class Subscription {
     private int foodPreferences_id;
 
     public Subscription() {
+        this.foodPreferences = new ArrayList<>();
     }
 
     public int getSubscription_id() {
@@ -73,6 +74,8 @@ public class Subscription {
          
       
     }
+    //Peace Added this 
+    
     public void setFoodPreferences(List<String> foodPreferences) {
      this.foodPreferences = new ArrayList<>();
         int combinedId = 0;
