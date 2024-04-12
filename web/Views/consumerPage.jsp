@@ -19,9 +19,10 @@
             <div class="consumer-nav">
                 <nav>
                     <ul>
-                        <li><a href="purchase.html">Purchase</a></li>
-                        <li><a href="Subscription_Servlet">Subscription</a></li>
-                        <li><a href="index.html">Logout</a></li>
+                        <li><a href="Consumer_Servlet?action=Purchase">Purchase</a></li>
+                        <li><a href="Consumer_Servlet?action=Subscription">Subscription</a></li>
+                        <li><a href="Consumer_Servlet?action=MySubscription">My Subscription</a></li>
+                        <li><a href="Consumer_Servlet?action=Logout">Logout</a></li>
                     </ul>
                 </nav>
             </div>

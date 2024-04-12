@@ -11,6 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -19,11 +20,17 @@ import javax.servlet.http.HttpServletResponse;
 @WebServlet(name = "MySubscription_Servlet")
 public class MySubscription_Servlet extends HttpServlet {
 
-  @Override
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        // Forward the request to the JSP page for displaying surplus food
-        request.getRequestDispatcher("/Views/mySubscriptionPage.jsp").forward(request, response);
-    }  
-    
+        HttpSession session = request.getSession(false);
+        if (session != null && session.getAttribute("user") != null) {
+            // Forward the request to the JSP page for displaying surplus food
+            request.getRequestDispatcher("/Views/mySubscriptionPage.jsp").forward(request, response);
+        } else {
+
+            request.getRequestDispatcher("/Views/login.jsp").forward(request, response);
+
+        }
+    }
 }

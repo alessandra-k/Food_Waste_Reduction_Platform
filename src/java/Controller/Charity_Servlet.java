@@ -1,6 +1,7 @@
 package Controller;
 
 import BusinessLayer.ClaimBusinessLogic;
+import BusinessLayer.InventoryBusinessLogic;
 import BusinessLayer.ItemBusinessLogic;
 import DataAccessLayer.ClaimDAO;
 import DataAccessLayer.ClaimDAOImpl;
@@ -82,13 +83,16 @@ public class Charity_Servlet extends HttpServlet {
                 itemClaimed.setQuantity(quantity);
 
                 claimedList.add(itemClaimed);
+                InventoryBusinessLogic inventory = new InventoryBusinessLogic();
+                inventory.updateInventory(itemId, quantity);
+                
                 
             }
         }
     }
     Claim claim = new Claim();
     claim.setClaimedItems(claimedList);
-    ClaimBusinessLogic claimBusinessLogic = new ClaimBusinessLogic();
+    
 }
 
 

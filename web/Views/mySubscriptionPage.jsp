@@ -11,7 +11,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subscribe to Surplus Food Alerts</title>
-    <link rel="stylesheet" href="<%= request.getContextPath() %>/CSS/style.css" type="text/css"/>
+    <link rel="stylesheet" href="CSS/style.css" type="text/css"/>
 </head>
 <body>
 
@@ -20,8 +20,9 @@
     <div class="my-subscribe-nav">
         <nav>
             <ul>
-                <li><a href="index.html">Logout</a></li>
-                <li><a href="Subscription_Servlet">Subscription</a></li>
+                <li><a href="Consumer_Servlet?action=ConsumerHome">Consumer Home</a></li>
+                <li><a href="Consumer_Servlet?action=Subscription">Subscription</a></li>
+                <li><a href=Consumer_Servlet?action=Logout">Logout</a></li>
             </ul>
         </nav>
     </div>
