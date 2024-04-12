@@ -55,7 +55,7 @@ public class SurplusItems_Servlet extends HttpServlet {
                 case "downloadPDF" -> generateSurplusFoodPDF(response);
 
                 default -> {
-                }
+                    request.getRequestDispatcher("/Views/login.jsp").forward(request, response);                }
             }
         } else {
 

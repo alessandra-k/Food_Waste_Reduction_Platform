@@ -40,6 +40,10 @@
         <servlet-name>MySubscription_Servlet</servlet-name>
         <servlet-class>Controller.MySubscription_Servlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Purchase_Servlet</servlet-name>
+        <servlet-class>Controller.Purchase_Servlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>Index_Servlet</servlet-name>
         <url-pattern>/Index_Servlet</url-pattern>
@@ -79,6 +83,10 @@
     <servlet-mapping>
         <servlet-name>MySubscription_Servlet</servlet-name>
         <url-pattern>/MySubscription_Servlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Purchase_Servlet</servlet-name>
+        <url-pattern>/Purchase_Servlet</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

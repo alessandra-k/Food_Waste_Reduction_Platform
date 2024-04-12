@@ -13,7 +13,7 @@ public class Claim {
     private int claim_id;
     private LocalDate date;
     private int user_id;
-    private List<Item> claimedItems;
+    private List<DonationItems> claimedItems;
 
     public Claim() {
     }
@@ -42,15 +42,19 @@ public class Claim {
         this.user_id = user_id;
     }
 
-    public List<Item> getClaimedItems() {
+    public List<DonationItems> getClaimedItems() {
         return claimedItems;
     }
 
-    public void addClaimedItem(Item item) {
+    public void addClaimedItem(DonationItems item) {
          if (claimedItems == null) {
             claimedItems = new ArrayList<>();
         }
         claimedItems.add(item);
+    }
+
+    public void setClaimedItems(List<DonationItems> claimedItems) {
+        this.claimedItems = claimedItems;
     }
 
 }
