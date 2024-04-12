@@ -31,7 +31,7 @@ public class DataSource {
             if (connection == null || connection.isClosed()) {
                 String connectionString = "jdbc:mysql://localhost:3306/FWRP";
                 String username = "root";
-                String password = "@Talves92";
+                String password = "Lucas183729@";
                 connection = DriverManager.getConnection(connectionString, username, password);
             } else {
                 System.out.println("Cannot create new connection, using existing one");

@@ -4,6 +4,7 @@ import DataAccessLayer.InventoryDAO;
 import DataAccessLayer.InventoryDAOImpl;
 import Model.DonationItems;
 import Model.ExcessDemandItems;
+import Model.General_Items_Inventory;
 import Model.Inventory;
 import Model.Item;
 import Model.SalesItems;
@@ -24,6 +25,10 @@ public class InventoryBusinessLogic {
     public void addToInventory(int itemId, int quantity) {
         inventoryDAO.addToInventory(itemId, quantity);
     }
+    
+    public void updateInventory_ReduceQuantity(int itemId, int quantity) {
+        inventoryDAO.updateInventory_ReduceQuantity(itemId, quantity);
+    }
 
     public List<SalesItems> getItemsWithDiscount() {
         return inventoryDAO.getItemsWithDiscount();
@@ -42,12 +47,16 @@ public class InventoryBusinessLogic {
         return inventoryDAO.getItemsCloseToExpiration();
     }
 
-    public Inventory getInventoryById(int inventoryId) {
-        return inventoryDAO.getInventoryById(inventoryId);
+    public General_Items_Inventory getItemById(int itemId) {
+        return inventoryDAO.getItemById(itemId);
     }
 
     public List<Inventory> getAllInventories() {
         return inventoryDAO.getAllInventories();
+    }
+    
+    public List<General_Items_Inventory> getItemsAvailableForPurchase() {
+        return inventoryDAO.getItemsAvailableForPurchase();
     }
 
     public void updateInventory(int itemId, int quantity) {
