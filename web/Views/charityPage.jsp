@@ -19,9 +19,14 @@
         <div class="charity-nav">
             <nav>
                 <ul>
+
+                    
+                    <li><a href="index.html">Logout</a></li>
+
                     <li><a href="Charity_Servlet?action=Claim">Claim Food</a></li>
                     <li><a href="Charity_Servlet?action=Subscription">Subscription</a></li>
-                    <li><a href="Charity_Servlet?action=Logout">Logout</a></li>
+                    
+
                 </ul>
             </nav>
         </div>

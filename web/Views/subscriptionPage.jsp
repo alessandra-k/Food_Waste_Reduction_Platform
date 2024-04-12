@@ -1,7 +1,8 @@
 <%-- 
     Document   : subscriptionPage
     Created on : Mar. 22, 2024, 1:48:15 p.m.
-    Author     : aless
+    Author     : morio
+Peace Added this
 --%>
 
 <%@page import="Model.FoodPreference"%>
