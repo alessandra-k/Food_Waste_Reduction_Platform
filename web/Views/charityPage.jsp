@@ -24,7 +24,7 @@
                     <li><a href="index.html">Logout</a></li>
 
                     <li><a href="Charity_Servlet?action=Claim">Claim Food</a></li>
-                    <li><a href="Charity_Servlet?action=Subscription">Subscription</a></li>
+                    <li><a href="Subscription_Servlet">Subscription</a></li>
                     
 
                 </ul>
