@@ -11,7 +11,7 @@ public class ClaimDAOImpl implements ClaimDAO {
 
     @Override
     public void addClaim(Claim claim) {
-
+        
     }
 
     @Override

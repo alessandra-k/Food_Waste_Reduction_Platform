@@ -78,7 +78,7 @@
                 <table>
                     <thead>
                         <tr>
-                            <th>Iem ID</th>
+                            <th>Item ID</th>
                             <th>Name</th>
                             <th>Description</th>
                             <th>Price</th>
