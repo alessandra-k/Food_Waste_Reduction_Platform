@@ -18,6 +18,39 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Inventory Management</title>
         <link rel="stylesheet" href="CSS/style.css" type="text/css"/>
+        <style>
+            .inventory-list-section {
+                         display: flex;
+                flex-direction: column;
+                max-width: 100%;
+                overflow-x: auto;
+            }
+
+            .inventory-list-section table {
+                width: max-content;
+                height: auto;
+                display: inline-block;
+                font-size: 14px;
+            }
+
+            .inventory-list-section th{
+                padding: 10px;
+            }
+
+            .inventory-list-section td {
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .inventory-list-section th {
+                background-color: #f2f2f2;
+            }
+            .inventory-list-section input[type="number"] {
+                width: 70px;
+                display: inline-block;
+            }
+  
+        </style>
     </head>
     <body>
         <header>
@@ -25,7 +58,7 @@
             <div class="inventory-nav">
                 <nav>
                     <ul>
-                       <li><a href="Retailer_InventoryManagement_Servlet?action=RetailerHome">Retailer Home</a></li>
+                        <li><a href="Retailer_InventoryManagement_Servlet?action=RetailerHome">Retailer Home</a></li>
                         <li><a href="Retailer_InventoryManagement_Servlet?action=surplus">Surplus Food</a></li>
 
                         <li><a href="index.html">Logout</a></li>
@@ -82,52 +115,52 @@
                     <button type="submit" class="button">Update</button>
                 </form>
             </section>
-        </form>
-        <section id="inventory-list" class="inventory-list-section">
-            <h2>Inventory List</h2>
-            <br>
-            <form method="POST" action="UpdateItem_Servlet">
-                <table>
-                    <tr>
-                        <th>Item Id</th> 
-                        <th>Name</th>
-                        <th>Description</th>
-                        <th>Price</th>
-                        <th>Expiration Date</th>
-                        <th>Discount</th>
-                        <th>For Donation</th>
-                        <th> Add Quantity</th>
-                    </tr>
-                    <%
-                        ItemBusinessLogic itemBusinessLogic = new ItemBusinessLogic();
-                        List<Item> itemsList = itemBusinessLogic.getAllItems();
 
-                        for (Item item : itemsList) {
-                    %>
-                    <tr>
+            <section id="inventory-list" class="inventory-list-section">
+                <h2>Inventory List</h2>
+                <br>
+                <form method="POST" action="UpdateItem_Servlet">
+                    <table>
+                        <tr>
+                            <th>Item Id</th> 
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Price</th>
+                            <th>Expiration Date</th>
+                            <th>Discount</th>
+                            <th>For Donation</th>
+                            <th> Add Quantity</th>
+                        </tr>
+                        <%
+                            ItemBusinessLogic itemBusinessLogic = new ItemBusinessLogic();
+                            List<Item> itemsList = itemBusinessLogic.getAllItems();
 
-                        <td><%= item.getItem_id()%></td>
-                        <td><%= item.getName()%></td>
-                        <td><%= item.getDescription()%></td>
-                        <td><%= item.getPrice()%></td>
-                        <td><%= item.getExpirationDate()%></td>
-                        <td><%= Discount.getDiscountDescriptionById(item.getDiscount_id())%></td>
-                        <td><%= item.isForDonation() ? "Yes" : "No"%></td>
-                        <td><input type="number" name="itemQTD_<%= item.getItem_id()%>" value=""></td>
-                        <td><input type="hidden" name="itemId_<%= item.getItem_id()%>" value="<%= item.getItem_id()%>"></td>
+                            for (Item item : itemsList) {
+                        %>
+                        <tr>
+
+                            <td><%= item.getItem_id()%></td>
+                            <td><%= item.getName()%></td>
+                            <td><%= item.getDescription()%></td>
+                            <td><%= item.getPrice()%></td>
+                            <td><%= item.getExpirationDate()%></td>
+                            <td><%= Discount.getDiscountDescriptionById(item.getDiscount_id())%></td>
+                            <td><%= item.isForDonation() ? "Yes" : "No"%></td>
+                            <td><input type="number" name="itemQTD_<%= item.getItem_id()%>" value=""></td>
+                            <td><input type="hidden" name="itemId_<%= item.getItem_id()%>" value="<%= item.getItem_id()%>"></td>
 
 
-                    </tr>
-                    <% }%>
+                        </tr>
+                        <% }%>
 
-                </table>
-                <button type="submit" class="button">Update</button>
-            </form>
+                    </table>
+                    <button type="submit" class="button">Update</button>
+                </form>
 
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Food Waste Reduction Platform. All rights reserved.</p>
-    </footer>
-</body>
+            </section>
+        </main>
+        <footer>
+            <p>&copy; 2024 Food Waste Reduction Platform. All rights reserved.</p>
+        </footer>
+    </body>
 </html>

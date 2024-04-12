@@ -18,40 +18,39 @@
         <title>Purchase Surplus Food</title>
         <link rel="stylesheet" href="<%= request.getContextPath()%>/CSS/style.css" type="text/css"/>
         <style>
-            table {
-                border-collapse: collapse;
-                width: 90%; /* Set the table width to 80% of its container */
-                margin: 0 auto; /* Center the table horizontally */
+                  table {
+                width: max-content;
             }
 
-            th, td {
-                padding: 20px; /* Add padding to th and td */
-                text-align: left; /* Align text to the left */
-            }
-
-            th {
-                background-color: #f2f2f2; /* Add background color to table headers */
-            }
-
-            .add-to-cart-button {
-                margin-right: 60px;
-                padding: 10px 20px;
-                background-color: #4CAF50; /* Green */
-                color: white;
-                text-decoration: none;
-                border: none;
-                border-radius: 5px;
-                transition: background-color 0.3s;
-                width: 200px; /* Allow the button to adjust its width based on content */
-                float: right;
-            }
-
-            .button:hover {
-                background-color: #45a049; /* Darker green on hover */
-            }
             .inventory-list-section {
                 display: flex;
                 flex-direction: column;
+                max-width: 300%;
+                overflow-x: auto;
+            }
+
+            .inventory-list-section table {
+                width: max-content;
+                height: auto;
+                display: inline-block;
+                font-size: 14px;
+            }
+
+            .inventory-list-section th{
+                padding: 10px;
+            }
+
+            .inventory-list-section td {
+                text-align: center;
+                border-bottom: 1px solid #ddd;
+            }
+
+            .inventory-list-section th {
+                background-color: #f2f2f2;
+            }
+            .inventory-list-section input[type="number"] {
+                width: 70px;
+                display: inline-block;
             }
 
         </style>
@@ -65,7 +64,7 @@
                     <ul>
                         <li><a href="Charity_Servlet?action=CharityHome">Charity Home</a></li>
                         <li><a href="Charity_Servlet?action=Claim">Claim Donation Items</a></li>
-                        <li><a href="Charity_Servlet?action=Subscription">Subscription</a></li>
+                          <li><a href="Subscription_Servlet">Subscription</a></li>
                         <li><a href="Charity_Servlet?action=Logout">Logout</a></li>
                     </ul>
                 </nav>

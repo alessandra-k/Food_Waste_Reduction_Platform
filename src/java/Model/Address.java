@@ -1,7 +1,7 @@
 package Model;
 
 /**
- *Peace testing stuff 
+ *
  * @author aless
  */
 public class Address {
@@ -9,7 +9,7 @@ public class Address {
     private Integer address_id;
     private String street;
     private String postalCode;
-   private int user_id; //private User user;  Assuming each address belongs to one user
+   private int user_id; 
 
     public Address() {
     }
@@ -43,14 +43,6 @@ public class Address {
     public void setPostalCode(String postalCode) {
         this.postalCode = postalCode;
     }
-
-//    public User getUser() {
-//        return user;
-//    }
-//
-//    public void setUser(User user) {
-//        this.user = user;
-//    }
     
         public Integer getUser_id() {
         return user_id;

@@ -29,8 +29,6 @@ public class DonationItems {
         this.expirationDate = expirationDate;
         this.quantity = quantity;
     }
-    
-    
 
     public int getItemId() {
         return itemId;

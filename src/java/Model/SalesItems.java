@@ -6,7 +6,7 @@ import java.util.Date;
  *
  * @author aless
  */
-public class SalesItems extends Inventory{
+public class SalesItems {
 
     private int itemId;
     private String name;

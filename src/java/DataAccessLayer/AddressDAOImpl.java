@@ -9,7 +9,6 @@ import java.sql.Statement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
-import java.util.List;
 import java.sql.ResultSet;
 
 /**
@@ -48,15 +47,6 @@ public class AddressDAOImpl implements AddressDAO {
             closeConnectionAndResources(connection, statement, generatedKeys);
         }
 }
-    @Override
-    public Address getAddressById(int addressId) {
-        return null;
-    }
-
-    @Override
-    public List<Address> getAllAddresses() {
-        return null;
-    }
 
     @Override
     public void updateAddress(int addressId, User user) {
@@ -79,11 +69,6 @@ public class AddressDAOImpl implements AddressDAO {
             closeConnectionAndResources(connection, statement);
 
         }
-    }
-
-    @Override
-    public void deleteAddress(int addressId) {
-
     }
 
 }

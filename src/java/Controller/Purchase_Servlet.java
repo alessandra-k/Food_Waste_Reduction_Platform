@@ -18,33 +18,39 @@ public class Purchase_Servlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String action = request.getParameter("action");
 
+        if ("ConsumerHome".equals(action)) {
+            request.getRequestDispatcher("/Views/consumerPage.jsp").forward(request, response);
+        } else if ("PurchasedItems".equals(action)) {
+            request.getRequestDispatcher("/Views/Purchase.jsp").forward(request, response);
+        }
     }
 
-@Override
-protected void doPost(HttpServletRequest request, HttpServletResponse response)
-        throws ServletException, IOException {
-    Enumeration<String> parameterNames = request.getParameterNames();
-    InventoryBusinessLogic inventoryBusinessLogic = new InventoryBusinessLogic();
+    @Override
+    protected void doPost(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        Enumeration<String> parameterNames = request.getParameterNames();
+        InventoryBusinessLogic inventoryBusinessLogic = new InventoryBusinessLogic();
 
-    while (parameterNames.hasMoreElements()) {
-        String paramName = parameterNames.nextElement();
-        if (paramName.startsWith("itemQTD_")) {
-            String paramValue = request.getParameter(paramName);
-            if (!paramValue.isEmpty()) {
-                int itemId = Integer.parseInt(paramName.substring("itemQTD_".length()));
-                int quantity = Integer.parseInt(paramValue);
-                if (quantity > 0) {
-                    inventoryBusinessLogic.updateInventory_ReduceQuantity(itemId, quantity);
+        while (parameterNames.hasMoreElements()) {
+            String paramName = parameterNames.nextElement();
+            if (paramName.startsWith("itemQTD_")) {
+                String paramValue = request.getParameter(paramName);
+                if (!paramValue.isEmpty()) {
+                    int itemId = Integer.parseInt(paramName.substring("itemQTD_".length()));
+                    int quantity = Integer.parseInt(paramValue);
+                    if (quantity > 0) {
+                        inventoryBusinessLogic.updateInventory_ReduceQuantity(itemId, quantity);
+                    }
                 }
             }
         }
-    }
-    // Redirect or forward back to the purchase.jsp page
-    RequestDispatcher dispatcher = request.getRequestDispatcher("/Views/Purchase.jsp");
-    dispatcher.forward(request, response);
+        // Redirect or forward back to the purchase.jsp page
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/Views/Purchase.jsp");
+        dispatcher.forward(request, response);
 
-}
+    }
 
     @Override
     public String getServletInfo() {

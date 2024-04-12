@@ -29,10 +29,6 @@ public class General_Items_Inventory extends Inventory{
         this.discountDescription = discountDescription;
     }
 
-  
-
-    
-
     public int getItemId() {
         return itemId;
     }
@@ -73,10 +69,12 @@ public class General_Items_Inventory extends Inventory{
         this.expirationDate = expirationDate;
     }
 
+    @Override
     public int getQuantity() {
         return quantity;
     }
 
+    @Override
     public void setQuantity(int quantity) {
         this.quantity = quantity;
     }

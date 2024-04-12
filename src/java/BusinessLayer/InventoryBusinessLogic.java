@@ -63,10 +63,6 @@ public class InventoryBusinessLogic {
         inventoryDAO.updateInventory(itemId, quantity);
     }
 
-    public void deleteInventory(int inventoryId) {
-        inventoryDAO.deleteInventory(inventoryId);
-    }
-
     public void deleteItem_FromIventory(int itemID) {
         inventoryDAO.deleteItem_FromIventory(itemID);
     }
